@@ -1,0 +1,57 @@
+f=30
+S1 { 4 }
+S2 { 3 }
+S3 { 2 }
+S4 { 3 }
+S5 { 4 }
+S6 { 2 }
+S7 { 2 }
+S8 { 3 }
+S9 { 5 }
+S10 { 5 }
+Sv - S1
+Sv - S2
+Sv - S3
+Sv - S4
+Sv - S5
+Sv - S6
+Sv - S7
+Sv - S8
+S1 - S2
+S1 - S3
+S1 - S4
+S1 - S5
+S1 - S6
+S1 - S7
+S1 - S8
+S1 - S9
+S2 - S3
+S2 - S4
+S2 - S5
+S2 - S6
+S2 - S7
+S2 - S8
+S2 - S9
+S3 - S4
+S3 - S5
+S3 - S6
+S3 - S7
+S3 - S8
+S3 - S9
+S4 - S5
+S4 - S6
+S4 - S7
+S4 - S8
+S4 - S9
+S5 - S6
+S5 - S7
+S5 - S8
+S5 - S9
+S6 - S7
+S6 - S8
+S6 - S9
+S7 - S8
+S7 - S9
+S8 - S9
+S9 - S10
+S10 - Sd

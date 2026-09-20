@@ -1,0 +1,7 @@
+f=5
+S1
+S2
+Sv - S1
+S1 - S2
+S2 - Sd
+Sd - Sv
