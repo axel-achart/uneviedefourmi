@@ -152,10 +152,13 @@ def dessiner(
         if not fourmis:
             continue
         abscisse, ordonnee = positions[noms[salle]]
-        axe.text(
-            abscisse,
-            ordonnee - 0.24,
+        # Décalage exprimé en points : les fourmis restent collées sous leur
+        # salle quelle que soit l'échelle des axes (une seule rangée, etc.).
+        axe.annotate(
             texte_fourmis(fourmis),
+            xy=(abscisse, ordonnee),
+            xytext=(0, -30),
+            textcoords="offset points",
             ha="center",
             va="top",
             fontsize=7,
@@ -163,7 +166,13 @@ def dessiner(
         )
 
     axe.set_title(titre if titre else fourmiliere["nom"], fontsize=12)
-    axe.margins(0.18)
+
+    # Cadre fixe autour des salles : sans lui, une fourmilière « plate »
+    # (toutes les salles sur une même ligne) serait étirée verticalement.
+    abscisses = [abscisse for abscisse, _ in positions.values()]
+    ordonnees = [ordonnee for _, ordonnee in positions.values()]
+    axe.set_xlim(min(abscisses) - 0.7, max(abscisses) + 0.7)
+    axe.set_ylim(min(ordonnees) - 0.7, max(ordonnees) + 0.7)
     figure.canvas.draw_idle()
 
     if fichier is not None:

@@ -48,7 +48,7 @@ DOSSIER_SOLUTIONS = RACINE / "solutions"
 DOSSIER_IMAGES = RACINE / "images"
 
 
-def charger_affichage(sans_fenetre: bool):
+def importer_module_affichage(sans_fenetre: bool):
     """Importe le module d'affichage en choisissant un rendu adapté."""
 
     try:
@@ -65,7 +65,7 @@ def charger_affichage(sans_fenetre: bool):
     return graphes
 
 
-def etudier(chemin: Path, details: bool = False, fenetre: bool = False, images: bool = False):
+def analyser_fourmiliere(chemin: Path, details: bool = False, fenetre: bool = False, images: bool = False):
     """Résout une fourmilière en suivant les cinq étapes du programme."""
 
     print(f"=== {chemin.name} ===")
@@ -119,7 +119,7 @@ def etudier(chemin: Path, details: bool = False, fenetre: bool = False, images: 
 
     # --- Bonus : graphes ---------------------------------------------------
     if fenetre or images:
-        affichage = charger_affichage(sans_fenetre=images and not fenetre)
+        affichage = importer_module_affichage(sans_fenetre=images and not fenetre)
         if fenetre:
             affichage.animer(fourmiliere, optimal)
         if images:
@@ -204,7 +204,7 @@ def main(arguments: list[str]) -> int:
     resultats = []
     for chemin in fichiers:
         try:
-            fourmiliere, optimal, glouton = etudier(
+            fourmiliere, optimal, glouton = analyser_fourmiliere(
                 chemin, details=details, fenetre=fenetre, images=images
             )
         except ErreurFourmiliere as erreur:
